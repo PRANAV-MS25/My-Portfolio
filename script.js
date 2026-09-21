@@ -1,218 +1,303 @@
-const projectData={
-  thyroid:{kicker:"AI / COMPUTER VISION",title:"Thyroid Nodule Detection Engine",desc:"Ultrasound image-analysis workflow using CNNs and EfficientNet-B0 for automated benign/malignant classification.",pipeline:"Ultrasound image → preprocessing / ROI → EfficientNet-B0 features → classification → probability score",role:"AI/ML + computer-vision project focused on an end-to-end model-to-application workflow."},
-  buspass:{kicker:"PYTHON / DJANGO",title:"BusPass Automation Engine",desc:"Digital transit-pass platform with Django authentication, validation, QR pass generation and database-backed records.",pipeline:"User input → Django auth/validation → QR token → SQLite record → digital pass",role:"Full-stack Python project focused on replacing a paper-heavy transit-pass flow with a web application."},
-  traffic:{kicker:"REAL-TIME SYSTEM",title:"NeuroSphere-X Smart City",desc:"FastAPI-based urban analytics concept with live dashboards, traffic visualization, heatmaps and WebSocket telemetry.",pipeline:"Telemetry/video input → processing → FastAPI → WebSocket → React dashboard",role:"Systems project exploring real-time data delivery and practical urban analytics."},
-  railway:{kicker:"FULL STACK",title:"Railway Reservation System",desc:"Cross-platform reservation concept covering booking flows, seat allocation, schedules and cancellation handling.",pipeline:"Flutter UI → authentication/data → booking service → reservation state",role:"Application-engineering project covering user flows, data persistence and booking logic."},
-  foodie:{kicker:"COMPUTER VISION",title:"FoodieAI Nutrition Vision",desc:"Computer-vision food recognition concept paired with nutritional mapping and a REST-backed application flow.",pipeline:"Image → visual features → food match → nutrition mapping → API response",role:"AI application concept connecting computer vision with a practical user-facing workflow."},
-  smartnode:{kicker:"IOT / REAL TIME",title:"Smart Autonomous Home Node",desc:"ESP32 sensing concept with telemetry graphs, threshold alerts and remote controls over WebSocket links.",pipeline:"Sensors → ESP32 → WebSocket server → dashboard → alerts/controls",role:"Embedded + real-time systems project combining sensing, communication and visualization."}
-};
+/* =================================================================
+   PORTFOLIO ENGINE & INTERACTIONS - SCRIPT.JS
+==================================================================== */
 
-const $=(s)=>document.querySelector(s);
-const $$=(s)=>document.querySelectorAll(s);
+document.addEventListener('DOMContentLoaded', () => {
 
-window.addEventListener("scroll",()=>{
-  const y=window.scrollY;
-  $("#progress").style.width=`${Math.min(100,(y/(document.documentElement.scrollHeight-innerHeight))*100)}%`;
-  $("#header").classList.toggle("scrolled",y>20);
-});
-
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")});
-},{threshold:.12});
-$$(".reveal").forEach(el=>observer.observe(el));
-
-$("#menuBtn").addEventListener("click",()=>{
-  const open=$("#nav").classList.toggle("open");
-  $("#menuBtn").setAttribute("aria-expanded",open);
-});
-$$(".nav a").forEach(a => {
-  a.addEventListener("click", e => {
-    const targetId = a.getAttribute("href");
-
-    // Close mobile navigation
-    $("#nav").classList.remove("open");
-    $("#menuBtn").setAttribute("aria-expanded", "false");
-
-    // Handle internal section links ourselves
-    if (targetId && targetId.startsWith("#")) {
-      const target = document.querySelector(targetId);
-
-      if (target) {
-        e.preventDefault();
-
-        const headerHeight = $("#header").offsetHeight;
-        const targetPosition =
-          target.getBoundingClientRect().top +
-          window.scrollY -
-          headerHeight -
-          20;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth"
-        });
-
-        // Keep URL hash
-        history.pushState(null, "", targetId);
-      }
+  // 1. SCROLL PROGRESS BAR
+  const progressBar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (window.scrollY / totalHeight) * 100;
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
     }
   });
-});
 
-$$(".filter").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    $$(".filter").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    const filter=btn.dataset.filter;
-    $$(".project-card").forEach(card=>{
-      card.classList.toggle("hidden",filter!=="all" && card.dataset.category!==filter);
+
+  // 2. MOBILE NAVIGATION TOGGLE
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+      menuBtn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close menu when clicking nav links
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
+  }
+
+
+  // 3. TERMINAL EMAIL COPY BUTTON
+  const copyBtn = document.getElementById('copyEmail');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('mathampranav@gmail.com').then(() => {
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = 'copied!';
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 2000);
+      });
+    });
+  }
+
+
+  // 4. PROJECT FILTERING LOGIC
+  const filterButtons = document.querySelectorAll('.filter');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+          setTimeout(() => card.style.opacity = '1', 50);
+        } else {
+          card.style.opacity = '0';
+          setTimeout(() => card.style.display = 'none', 300);
+        }
+      });
     });
   });
-});
 
-function openProject(id){
-  const d=projectData[id]; if(!d)return;
-  $("#modalKicker").textContent=d.kicker;
-  $("#modalTitle").textContent=d.title;
-  $("#modalDesc").textContent=d.desc;
-  $("#modalPipeline").textContent=d.pipeline;
-  $("#modalRole").textContent=d.role;
-  $("#projectModal").classList.add("open");
-  $("#projectModal").setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
-}
-function closeProject(){
-  $("#projectModal").classList.remove("open");
-  $("#projectModal").setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-}
-$$(".project-card").forEach(card=>card.addEventListener("click",()=>openProject(card.dataset.project)));
-$("#modalClose").addEventListener("click",closeProject);
-$$("[data-close]").forEach(x=>x.addEventListener("click",closeProject));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProject()});
 
-$("#copyEmail").addEventListener("click",async()=>{
-  try{
-    await navigator.clipboard.writeText("mathampranav@gmail.com");
-    $("#copyEmail").textContent="copied ✓";
-    setTimeout(()=>$("#copyEmail").textContent="copy",1500);
-  }catch{location.href="mailto:mathampranav@gmail.com"}
-});
+  // 5. PROJECT ARCHITECTURE MODAL DATA & CONTROLS
+  const modal = document.getElementById('projectModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalKicker = document.getElementById('modalKicker');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalPipeline = document.getElementById('modalPipeline');
+  const modalRole = document.getElementById('modalRole');
 
-const cat=$("#walkingCat");
-const catSprite=$("#catSprite");
-const catBubble=$("#catBubble");
-const catFrames=Array.from({length:11},(_,i)=>`assets/cat/cat_${String(i).padStart(2,"0")}.png`);
-const catPhrases=[
-  "pspsps... 🐾",
-  "just passing through 😼",
-  "keep scrolling 👀",
-  "nice project. approved.",
-  "ship it! 🚀",
-  "meow = deploy",
-  "don't forget GitHub!",
-  "i saw that bug 👁️",
-  "need a referral? 👀"
-];
-
-// Preload the extracted frames so the realistic cat animation stays smooth.
-catFrames.forEach(src=>{const img=new Image();img.src=src});
-
-let catX=-190;
-let catDirection=1;
-let catFrame=0;
-let catPaused=false;
-let lastTime=performance.now();
-let frameClock=0;
-let pawClock=0;
-let bubbleTimer=null;
-let idleUntil=0;
-const CAT_SPEED=58;
-const FRAME_MS=82;
-
-function showCatMessage(message){
-  catBubble.textContent=message;
-  cat.classList.add("show-bubble");
-  clearTimeout(bubbleTimer);
-  bubbleTimer=setTimeout(()=>cat.classList.remove("show-bubble"),2400);
-}
-
-function leavePaw(){
-  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-  const paw=document.createElement("span");
-  paw.className="paw-print";
-  const rect=cat.getBoundingClientRect();
-  const x=catDirection>0 ? rect.left+28 : rect.right-45;
-  const y=rect.bottom-27;
-  paw.style.left=`${Math.max(4,x)}px`;
-  paw.style.top=`${Math.max(4,y)}px`;
-  paw.style.transform=`rotate(${catDirection>0?-8:8}deg) scale(.8)`;
-  document.body.appendChild(paw);
-  setTimeout(()=>paw.remove(),2600);
-}
-
-function renderCat(){
-  const viewport=window.innerWidth;
-  const catWidth=cat.getBoundingClientRect().width || 170;
-  const minX=-catWidth-20;
-  const maxX=viewport-32;
-  cat.style.transform=`translate3d(${catX}px,0,0) scaleX(${catDirection})`;
-}
-
-function catLoop(now){
-  const dt=Math.min(40,now-lastTime);
-  lastTime=now;
-  if(!catPaused && now>=idleUntil){
-    catX += catDirection * CAT_SPEED * dt/1000;
-    frameClock += dt;
-    pawClock += dt;
-    if(frameClock>=FRAME_MS){
-      frameClock=0;
-      catFrame=(catFrame+1)%catFrames.length;
-      catSprite.src=catFrames[catFrame];
+  // Project architectural specs database
+  const projectData = {
+    thyroid: {
+      kicker: 'AI / COMPUTER VISION',
+      title: 'Thyroid Nodule Detection Engine',
+      desc: 'An end-to-end deep learning system designed for precise medical image segmentation and ultrasound analysis. Utilizes EfficientNetB2 architecture coupled with custom preprocessing pipelines to isolate nodules and classify malignancy risk with high accuracy.',
+      pipeline: 'OpenCV Preprocessing → EfficientNetB2 Feature Extraction → Softmax Classification',
+      role: 'Lead Architect & Model Builder'
+    },
+    buspass: {
+      kicker: 'PYTHON / DJANGO',
+      title: 'BusPass Automation Engine',
+      desc: 'A robust web-based transit pass management application engineered to handle secure user authentication, database record keeping, validation cycles, and instant cryptographic QR pass generation.',
+      pipeline: 'Django Auth → SQLite Relational Mapping → QR Generation Middleware',
+      role: 'Full-Stack Developer'
+    },
+    traffic: {
+      kicker: 'REAL-TIME SYSTEM',
+      title: 'NeuroSphere-X Smart City',
+      desc: 'An experimental urban telemetry dashboard featuring high-frequency WebSocket streams, FastAPI asynchronous backend routing, and dynamic data visualization modules for traffic density monitoring.',
+      pipeline: 'FastAPI Async Endpoints → WebSockets → React Live Analytics Canvas',
+      role: 'Systems & Backend Engineer'
+    },
+    railway: {
+      kicker: 'FULL STACK',
+      title: 'Railway Reservation System',
+      desc: 'A cross-platform ticket booking and schedule tracking solution built to manage live seat allocation, booking states, cancellation handling, and customer verification workflows.',
+      pipeline: 'Flutter Frontend → Node.js API Gateway → SQL Database Cluster',
+      role: 'Cross-Platform Developer'
+    },
+    foodie: {
+      kicker: 'COMPUTER VISION',
+      title: 'FoodieAI Nutrition Vision',
+      desc: 'A computer-vision powered nutrition mapping engine that evaluates food imagery, identifies meal categories, and maps estimated macronutrient breakdowns via trained classification networks.',
+      pipeline: 'Image Capture → OpenCV Feature Matching → Nutritional DB Query',
+      role: 'AI / CV Developer'
+    },
+    smartnode: {
+      kicker: 'IOT / REAL TIME',
+      title: 'Smart Autonomous Home Node',
+      desc: 'An embedded hardware telemetry node built around the ESP32 microcontroller, streaming real-time sensor metrics, threshold alerts, and remote device triggers over secure WebSocket channels.',
+      pipeline: 'ESP32 C++ Sensors → Node.js WebSocket Broker → Web Dashboard',
+      role: 'Embedded & IoT Developer'
     }
-    if(pawClock>430){pawClock=0;leavePaw();}
+  };
 
-    const catWidth=cat.getBoundingClientRect().width || 170;
-    const rightLimit=window.innerWidth-25;
-    if(catDirection>0 && catX>rightLimit){
-      catDirection=-1;
-      catX=rightLimit;
-      catFrame=0;
-      showCatMessage("oops. wrong way. ↩");
-      idleUntil=now+420;
-    }else if(catDirection<0 && catX<-catWidth-25){
-      catDirection=1;
-      catX=-catWidth-25;
-      catFrame=0;
-      idleUntil=now+650;
+  // Open modal on details button click
+  document.querySelectorAll('.project-details').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.project-card');
+      const projectKey = card.getAttribute('data-project');
+      const data = projectData[projectKey];
+
+      if (data && modal) {
+        modalKicker.textContent = data.kicker;
+        modalTitle.textContent = data.title;
+        modalDesc.textContent = data.desc;
+        modalPipeline.textContent = data.pipeline;
+        modalRole.textContent = data.role;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close modal helper
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
     }
-  }
-  renderCat();
-  requestAnimationFrame(catLoop);
-}
+  };
 
-cat.addEventListener("click",()=>{
-  catPaused=!catPaused;
-  if(catPaused){
-    showCatMessage(catPhrases[Math.floor(Math.random()*catPhrases.length)] + " — paused.");
-  }else{
-    showCatMessage("okay, back to causing trouble 😼");
-    lastTime=performance.now();
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target.hasAttribute('data-close') || e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Close modal via ESC key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+
+  // 6. SCROLL REVEAL ANIMATIONS VIA INTERSECTION OBSERVER
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
+
+
+ // 7. INTERACTIVE WALKING CAT SPRITE CONTROLLER
+  const catEl = document.getElementById('walkingCat');
+  const catSprite = document.getElementById('catSprite');
+  const catBubble = document.getElementById('catBubble');
+
+  if (catEl && catSprite) {
+    const catMessages = [
+      "pspsps... 🐾",
+      "compiling clean code... 💻",
+      "models training... ⚡",
+      "coffee level: optimal ☕",
+      "git commit -m 'purrfect' 🚀",
+      "bugs eliminated: 0 🐛"
+    ];
+
+    let messageIndex = 0;
+    let catX = window.innerWidth - 120; // Initial X position
+    let velocity = 1.2;                 // Walking speed
+    let isFacingLeft = true;
+    let isPaused = false;
+    let pauseTimer = null;
+
+    // Sprite frame animation state
+    let frameIndex = 0;
+    const totalFrames = 4; // Adjust if you have more/fewer frame files (e.g. cat_00.png to cat_03.png)
+    let frameTimer = 0;
+
+    catEl.style.position = 'fixed';
+    catEl.style.bottom = '20px';
+    catEl.style.zIndex = '99';
+
+    function animateCat(timestamp) {
+      if (!isPaused) {
+        catX += velocity;
+
+        // Boundary checks
+        const minX = 20;
+        const maxX = window.innerWidth - 80;
+
+        if (catX >= maxX) {
+          catX = maxX;
+          velocity = -Math.abs(velocity); // Turn left
+          isFacingLeft = true;
+          triggerCatPause();
+        } else if (catX <= minX) {
+          catX = minX;
+          velocity = Math.abs(velocity);  // Turn right
+          isFacingLeft = false;
+          triggerCatPause();
+        }
+
+        // Update CSS position and horizontal flip
+        catEl.style.left = `${catX}px`;
+        catEl.style.transform = isFacingLeft ? 'scaleX(1)' : 'scaleX(-1)';
+
+        // Leg animation walk cycle (updates frame every 120ms while walking)
+        if (!frameTimer || timestamp - frameTimer > 120) {
+          frameIndex = (frameIndex + 1) % totalFrames;
+          // Dynamically points to cat_00.png, cat_01.png, cat_02.png, etc.
+          const frameNumString = String(frameIndex).padStart(2, '0');
+          catSprite.src = `assets/cat/cat_${frameNumString}.png`;
+          frameTimer = timestamp;
+        }
+      } else {
+        // When paused, show a resting frame (frame 0)
+        catSprite.src = `assets/cat/cat_00.png`;
+      }
+
+      requestAnimationFrame(animateCat);
+    }
+
+    function triggerCatPause() {
+      isPaused = true;
+      if (pauseTimer) clearTimeout(pauseTimer);
+      
+      pauseTimer = setTimeout(() => {
+        isPaused = false;
+      }, Math.random() * 3000 + 1500);
+    }
+
+    catEl.addEventListener('click', () => {
+      isPaused = true;
+      if (pauseTimer) clearTimeout(pauseTimer);
+      catSprite.src = `assets/cat/cat_00.png`; // Sit when clicked
+
+      messageIndex = (messageIndex + 1) % catMessages.length;
+      if (catBubble) {
+        catBubble.textContent = catMessages[messageIndex];
+        catBubble.style.opacity = '1';
+        catBubble.style.transform = 'translateY(0)';
+        
+        setTimeout(() => {
+          catBubble.style.opacity = '';
+          catBubble.style.transform = '';
+          isPaused = false;
+        }, 2500);
+      }
+    });
+
+    requestAnimationFrame(animateCat);
   }
 });
-cat.addEventListener("keydown",e=>{
-  if(e.key==="Enter"||e.key===" "){e.preventDefault();cat.click()}
-});
-
-window.addEventListener("resize",renderCat);
-
-const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
-if(reduceMotion.matches){
-  catPaused=true;
-  catX=Math.max(12,(window.innerWidth-170)/2);
-  catDirection=1;
-  catSprite.src=catFrames[0];
-}
-
-requestAnimationFrame(catLoop);
