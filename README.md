@@ -13,44 +13,62 @@
 
   <!-- Add your portfolio preview screenshot here -->
   <br>
-  <img src="assets/portfolio-preview.png" alt="Portfolio Preview" width="100%" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
 </div>
 
----
+# 💻 Pranav Matham — Portfolio
 
-## 🌟 Overview
+A high-performance personal portfolio website showcasing software engineering projects, Python full-stack applications, and AI/ML computer vision systems. Built with a clean dark-mode developer aesthetic, terminal simulations, and interactive components.
 
-This repository houses the source code for my personal portfolio web application. Built with modern web technologies, it provides visitors, recruiters, and collaborators with an interactive overview of my background as a Software Developer, full-stack implementations, deep learning research papers, and technical competencies.
-
----
-
-## ✨ Key Features
-
-* **Responsive Modern UI**: Built with clean design systems ensuring seamless mobile, tablet, and desktop viewports.
-* **Project Showcase**: Detailed cards and breakdowns highlighting full-stack web applications, mobile apps, and machine learning/computer vision pipelines.
-* **Interactive Sections**: Smooth navigation across Home, About, Skills, Experience, and Contact/Community channels.
-* **Direct Professional Integration**: Quick links to professional profiles, direct email routing, and social networks.
+🌐 **Live URL:** [my-portfolio-eta-six-36.vercel.app](https://my-portfolio-eta-six-36.vercel.app)
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 📁 Project Structure
 
-* **Frontend Framework**: React / Modern JavaScript / Vite
-* **Styling & UI**: Tailwind CSS / Custom CSS Components
-* **Deployment & Hosting**: Vercel
+pranav-portfolio-upgraded/├── assets/                 # Icons, cat sprite sheets, and media│   ├── cat/                # Interactive walking cat animations│   └── ...├── My-Portfolio/           # Portfolio codebase submodule│   ├── index.html          # Main portfolio layout & markup│   ├── style.css           # Custom design system & animations│   ├── script.js           # Interactive filters, modals & cat logic│   ├── thyroid.png         # Project preview: Thyroid Engine│   ├── buspass.png         # Project preview: BusPass Automation│   ├── NeuroSphere-X.png   # Project preview: Smart City Platform│   ├── railway.png         # Project preview: Railway Reservation│   ├── Nutri-AI.png        # Project preview: Nutrition Vision│   ├── home.png            # Project preview: Smart Home Node│   └── Pranav_Matham_Resume.pdf  # Professional CV└── README.md
+---
+
+## 🗄️ Core Components & Architecture
+
+### `index.html` (Markup & Layout)
+| Section | Description |
+|---|---|
+| **Header** | Sticky navigation with responsive menu & quick links |
+| **Hero** | Introductory copy, CTAs, interactive terminal widget & stats row |
+| **Marquee** | Infinite scrolling technology ticker |
+| **About** | Context grid detailing engineering mindset and core pillars |
+| **Projects** | Filterable grid (Software, AI/ML, Systems) with modal popups |
+| **Stack** | Core foundations, languages, and toolchains |
+| **Experience** | Professional internship and educational timeline |
+| **Contact** | Direct outreach triggers and footer metadata |
+
+### `script.js` (Interactivity & Logic)
+| Functionality | Implementation |
+|---|---|
+| **Project Filtering** | Category-based DOM filtering (All / Software / AI / Systems) |
+| **Dynamic Modals** | Architectural deep-dive cards triggered on project selection |
+| **Terminal Widget** | Interactive command-line simulation with copy-email action |
+| **Walking Cat Sprite** | Custom event-driven character animation engine |
+| **Scroll Progress** | Dynamic reading progress bar across viewport bounds |
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Setup & Local Development
 
-```text
-My-Portfolio/
-├── public/             # Static assets, images, and icons
-├── src/
-│   ├── components/     # Reusable UI sections (Navbar, Projects, Contact, etc.)
-│   ├── assets/         # Project images and media files
-│   ├── App.jsx         # Main application entry component
-│   └── main.jsx        # React DOM render setup
-├── package.json        # Dependencies and build scripts
-└── README.md           # Project documentation
+### 1. Prerequisites
+```bash
+A modern web browser (Chrome, Firefox, Edge, Safari)
+A lightweight local server tool (e.g., VS Code Live Server)
+2. Clone the RepositoryBashgit clone [https://github.com/PRANAV-MS25/My-Portfolio.git](https://github.com/PRANAV-MS25/My-Portfolio.git)
+cd My-Portfolio
+3. Run LocallyBecause this is a static web application built with vanilla web standards, you can open it directly:Double-click index.html to open in your default browser, OROpen the folder in VS Code and click Go Live using the Live Server extension.🚀 Tech StackCategoryTechnologies / ToolsFrontendHTML5, CSS3 (Custom Properties, Flexbox, Grid), JavaScript (ES6+)Styling & EffectsInter & JetBrains Mono Fonts, Custom CSS Animations, Blur OrbsVersion ControlGit & GitHubDeploymentVercel (Automated CI/CD pipeline)🔄 User Interaction FlowUser visits live URL → Landed on Hero section with live terminal & stats
+    ↓
+Scrolls through Marquee & About section → Learns developer context
+    ↓
+Filters Projects (All / Software / AI / Systems) → Clicks card for architectural modal
+    ↓
+Examines Experience & Educational timeline (SJBIT & Vectora Ventures)
+    ↓
+Reaches Contact section or triggers email copy → Initiates professional outreach
+🌐 URL Reference / AnchorsAnchor / LinkTarget Section#topTop / Hero Section#aboutAbout context#projectsSelected projects grid#stackFoundational tech stack#experienceProfessional timeline#contactContact details & emailPranav_Matham_Resume.pdfDownloadable / Viewable Resume✅ Features ImplementedFully responsive mobile and desktop layoutSemantic HTML5 document structureCustom CSS variable-based design system with dark themeInteractive project detail modal cards with architecture highlightsReal-time cat animation interaction easter eggTerminal widget with clipboard integrationCategory filters for portfolio showcase itemsIntegrated PDF resume access📸 Portfolio Preview1. Overview & SectionsAbout SectionExperience & Education2. Work & FoundationsSelected ProjectsCore Tech Stack3. ConnectionContact Section© 2026 Pranav Matham. All rights reserved.
