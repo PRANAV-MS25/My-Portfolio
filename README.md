@@ -25,8 +25,10 @@ pranav-portfolio-upgraded/
 │   ├── home.png            # Project preview: Smart Home Node
 │   └── Pranav_Matham_Resume.pdf  # Professional CV
 └── README.md
-##
-🗄️ Core Components & Architectureindex.html 
+
+
+## 🗄️ Core Components & Architecture
+
 ### `index.html` (Markup & Layout)
 
 | Section | Description |
