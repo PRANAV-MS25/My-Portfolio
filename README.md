@@ -218,21 +218,21 @@ Email / Resume / Social Links
 
 ### 1. Overview & Sections
 
-|     About     | Experience & Education |
-| :-----------: | :--------------------: |
-| `about_P.png` |   `experience_P.png`   |
+| About | Experience & Education |
+| :---: | :---: |
+| ![About Section](about_P.png) | ![Experience & Education](experience_P.png) |
 
 ### 2. Work & Foundations
 
 | Selected Projects | Core Tech Stack |
-| :---------------: | :-------------: |
-|  `project_P.png`  |  `stack_P.png`  |
+| :---: | :---: |
+| ![Selected Projects](project_P.png) | ![Core Tech Stack](stack_P.png) |
 
 ### 3. Connection
 
-|     Contact     |
-| :-------------: |
-| `contact_P.png` |
+| Contact |
+| :---: |
+| ![Contact Section](contact_P.png) |
 
 ---
 
