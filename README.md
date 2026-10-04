@@ -1,22 +1,32 @@
 💻 Pranav Matham — Portfolio
 
-A high-performance personal portfolio website showcasing software engineering projects, Python full-stack applications, and AI/ML computer vision systems. Built with a clean dark-mode developer aesthetic, terminal simulations, and interactive components.
+A high-performance personal portfolio website showcasing software engineering projects, 
+Python full-stack applications, and AI/ML computer vision systems. Built with a clean
+dark-mode developer aesthetic, terminal simulations, and interactive components.
 
 🌐 Live URL: my-portfolio-eta-six-36.vercel.app
 
 
-📁 Project Structure
-text
+# 💻 Pranav Matham — Portfolio
+
+A high-performance personal portfolio website showcasing software engineering projects, Python full-stack applications, and AI/ML computer vision systems. Built with a clean dark-mode developer aesthetic, terminal simulations, and interactive components.
+
+🌐 **Live URL:** [my-portfolio-eta-six-36.vercel.app](https://my-portfolio-eta-six-36.vercel.app)
+
+---
+
+## 📁 Project Structure
+
+```text
 My-Portfolio/
 ├── index.html          # Main portfolio layout & markup
 ├── style.css           # Custom design system & animations
 ├── script.js           # Interactive filters, modals & cat logic
-├── assets/             # Cat animation frames
-├── about_P.png         # Portfolio screenshot: About section
-├── experience_P.png    # Portfolio screenshot: Experience section
-├── project_P.png       # Portfolio screenshot: Projects section
-├── stack_P.png         # Portfolio screenshot: Tech stack section
-├── contact_P.png       # Portfolio screenshot: Contact section
+├── about_P.png         # Project preview: About section
+├── experience_P.png    # Project preview: Experience section
+├── project_P.png       # Project preview: Projects section
+├── stack_P.png         # Project preview: Tech stack section
+├── contact_P.png       # Project preview: Contact section
 ├── thyroid.png         # Project preview: Thyroid Engine
 ├── buspass.png         # Project preview: BusPass Automation
 ├── NeuroSphere-X.png   # Project preview: Smart City Platform
