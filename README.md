@@ -1,21 +1,3 @@
-<div align="center">
-
-  <h1>🚀 Personal Portfolio Website</h1>
-  <p><b>A modern, responsive, and high-performance portfolio showcasing my projects, technical skills, research publications, and professional experience.</b></p>
-
-  <p>
-    <a href="https://my-portfolio-eta-six-36.vercel.app/" target="_blank">
-      <img src="https://img.shields.io/badge/Website-Live%20Preview-brightgreen?style=for-the-badge&logo=vercel" alt="Live Website">
-    </a>
-    <img src="https://img.shields.io/badge/Status-Active%20&%20Maintained-blue?style=for-the-badge" alt="Status">
-    <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
-  </p>
-
-  <!-- Add your portfolio preview screenshot here -->
-  <br>
-
-</div>
-
 # 💻 Pranav Matham — Portfolio
 
 A high-performance personal portfolio website showcasing software engineering projects, Python full-stack applications, and AI/ML computer vision systems. Built with a clean dark-mode developer aesthetic, terminal simulations, and interactive components.
@@ -26,43 +8,28 @@ A high-performance personal portfolio website showcasing software engineering pr
 
 ## 📁 Project Structure
 
-pranav-portfolio-upgraded/├── assets/                 # Icons, cat sprite sheets, and media│   ├── cat/                # Interactive walking cat animations│   └── ...├── My-Portfolio/           # Portfolio codebase submodule│   ├── index.html          # Main portfolio layout & markup│   ├── style.css           # Custom design system & animations│   ├── script.js           # Interactive filters, modals & cat logic│   ├── thyroid.png         # Project preview: Thyroid Engine│   ├── buspass.png         # Project preview: BusPass Automation│   ├── NeuroSphere-X.png   # Project preview: Smart City Platform│   ├── railway.png         # Project preview: Railway Reservation│   ├── Nutri-AI.png        # Project preview: Nutrition Vision│   ├── home.png            # Project preview: Smart Home Node│   └── Pranav_Matham_Resume.pdf  # Professional CV└── README.md
----
-
-## 🗄️ Core Components & Architecture
-
-### `index.html` (Markup & Layout)
-| Section | Description |
-|---|---|
-| **Header** | Sticky navigation with responsive menu & quick links |
-| **Hero** | Introductory copy, CTAs, interactive terminal widget & stats row |
-| **Marquee** | Infinite scrolling technology ticker |
-| **About** | Context grid detailing engineering mindset and core pillars |
-| **Projects** | Filterable grid (Software, AI/ML, Systems) with modal popups |
-| **Stack** | Core foundations, languages, and toolchains |
-| **Experience** | Professional internship and educational timeline |
-| **Contact** | Direct outreach triggers and footer metadata |
-
-### `script.js` (Interactivity & Logic)
-| Functionality | Implementation |
-|---|---|
-| **Project Filtering** | Category-based DOM filtering (All / Software / AI / Systems) |
-| **Dynamic Modals** | Architectural deep-dive cards triggered on project selection |
-| **Terminal Widget** | Interactive command-line simulation with copy-email action |
-| **Walking Cat Sprite** | Custom event-driven character animation engine |
-| **Scroll Progress** | Dynamic reading progress bar across viewport bounds |
-
----
-
-## ⚙️ Setup & Local Development
-
-### 1. Prerequisites
-```bash
-A modern web browser (Chrome, Firefox, Edge, Safari)
+```text
+pranav-portfolio-upgraded/
+├── assets/                 # Icons, cat sprite sheets, and media
+│   ├── cat/                # Interactive walking cat animations
+│   └── ...
+├── My-Portfolio/           # Portfolio codebase submodule
+│   ├── index.html          # Main portfolio layout & markup
+│   ├── style.css           # Custom design system & animations
+│   ├── script.js           # Interactive filters, modals & cat logic
+│   ├── thyroid.png         # Project preview: Thyroid Engine
+│   ├── buspass.png         # Project preview: BusPass Automation
+│   ├── NeuroSphere-X.png   # Project preview: Smart City Platform
+│   ├── railway.png         # Project preview: Railway Reservation
+│   ├── Nutri-AI.png        # Project preview: Nutrition Vision
+│   ├── home.png            # Project preview: Smart Home Node
+│   └── Pranav_Matham_Resume.pdf  # Professional CV
+└── README.md
+🗄️️ Core Components & Architectureindex.html (Markup & Layout)SectionDescriptionHeaderSticky navigation with responsive menu & quick linksHeroIntroductory copy, CTAs, interactive terminal widget & stats rowMarqueeInfinite scrolling technology tickerAboutContext grid detailing engineering mindset and core pillarsProjectsFilterable grid (Software, AI/ML, Systems) with modal popupsStackCore foundations, languages, and toolchainsExperienceProfessional internship and educational timelineContactDirect outreach triggers and footer metadatascript.js (Interactivity & Logic)FunctionalityImplementationProject FilteringCategory-based DOM filtering (All / Software / AI / Systems)Dynamic ModalsArchitectural deep-dive cards triggered on project selectionTerminal WidgetInteractive command-line simulation with copy-email actionWalking Cat SpriteCustom event-driven character animation engineScroll ProgressDynamic reading progress bar across viewport bounds⚙️ Setup & Local Development1. PrerequisitesBashA modern web browser (Chrome, Firefox, Edge, Safari)
 A lightweight local server tool (e.g., VS Code Live Server)
 2. Clone the RepositoryBashgit clone [https://github.com/PRANAV-MS25/My-Portfolio.git](https://github.com/PRANAV-MS25/My-Portfolio.git)
 cd My-Portfolio
-3. Run LocallyBecause this is a static web application built with vanilla web standards, you can open it directly:Double-click index.html to open in your default browser, OROpen the folder in VS Code and click Go Live using the Live Server extension.🚀 Tech StackCategoryTechnologies / ToolsFrontendHTML5, CSS3 (Custom Properties, Flexbox, Grid), JavaScript (ES6+)Styling & EffectsInter & JetBrains Mono Fonts, Custom CSS Animations, Blur OrbsVersion ControlGit & GitHubDeploymentVercel (Automated CI/CD pipeline)🔄 User Interaction FlowUser visits live URL → Landed on Hero section with live terminal & stats
+3. Run LocallyBecause this is a static web application built with vanilla web standards, you can open it directly:Double-click index.html to open in your default browser, OROpen the folder in VS Code and click Go Live using the Live Server extension.🚀 Tech StackCategoryTechnologies / ToolsFrontendHTML5, CSS3 (Custom Properties, Flexbox, Grid), JavaScript (ES6+)Styling & EffectsInter & JetBrains Mono Fonts, Custom CSS Animations, Blur OrbsVersion ControlGit & GitHubDeploymentVercel (Automated CI/CD pipeline)🔄 User Interaction FlowPlaintextUser visits live URL → Landed on Hero section with live terminal & stats
     ↓
 Scrolls through Marquee & About section → Learns developer context
     ↓
