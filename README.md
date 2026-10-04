@@ -220,7 +220,7 @@ Email / Resume / Social Links
 
 | About | Experience & Education |
 | :---: | :---: |
-| ![About Section](about_P.png) | ![Experience & Education](experience_P.png) |
+| ![About Section](about_P.png) | ![Experience](experience_P.png) |
 
 ### 2. Work & Foundations
 
