@@ -2,24 +2,8 @@
 
 A fast, responsive personal portfolio that showcases my projects, skills, and experience as a Python full-stack and AI/ML developer. Built with plain HTML, CSS, and JavaScript — no frameworks, no build step.
 
-🌐 Live site: my-portfolio-eta-six-36.vercel.app 📄 Resume: Download PDF
+🌐 Live Site: my-portfolio-eta-six-36.vercel.app 📄 Resume: Download PDF
 
-✨ Key Features
-Hero section with a terminal-style intro card (whoami, focus, location) and quick links to GitHub, LinkedIn, resume, and email.
-Project showcase with preview images, tech-stack tags, and links to each project's GitHub repository.
-Category filter to browse projects by All, Software, AI / ML, or Systems.
-"Explore architecture" panel on every project card, showing the build pipeline and the role of the build.
-Skills and experience sections covering languages, web basics, databases, tools, internship, and education.
-Responsive layout with a mobile menu, so it works on phones, tablets, and desktops.
-Direct contact links for email, LinkedIn, GitHub, and resume download.
-A small surprise — a cat animation hidden in the page (assets in assets/cat).
-🛠️ Tech Stack
-Layer	Technologies
-Markup	HTML5
-Styling	CSS3 (custom styles, responsive layout)
-Interactivity	Vanilla JavaScript
-Hosting	Vercel
-Version Control	Git, GitHub
 📁 Project Structure
 My-Portfolio/
 ├── index.html                  # Page structure and content
@@ -33,6 +17,52 @@ My-Portfolio/
 ├── railway.png
 ├── Nutri-AI.png
 └── home.png
+🛠️ Tech Stack
+Layer	Technologies
+Markup	HTML5
+Styling	CSS3 (custom styles, responsive layout)
+Interactivity	Vanilla JavaScript
+Hosting	Vercel (static site)
+Version Control	Git, GitHub
+⚙️ Setup Instructions
+
+No installation is needed, because the site is plain HTML, CSS, and JavaScript.
+
+1. Clone the Repository
+bash
+git clone https://github.com/PRANAV-MS25/My-Portfolio.git
+cd My-Portfolio
+2. Open the Site
+
+Double-click index.html, or start a small local server:
+
+bash
+python -m http.server 8000
+3. View in Browser
+
+Open: http://localhost:8000/
+
+☁️ Deployment
+
+The site is hosted on Vercel as a static site. Every push to the main branch updates the live version.
+
+🌐 Page Sections
+Section	Link	Description
+Home	#top	Intro, terminal-style card, and quick links
+About	#about	Short background and what I like to build
+Projects	#projects	Filterable project cards with architecture panels
+Stack	#stack	Languages, web basics, databases, and tools
+Experience	#experience	Internship and education
+Contact	#contact	Email, LinkedIn, GitHub, and resume
+✅ Features Implemented
+Terminal-style hero card (whoami, focus, location)
+Project showcase with preview images and tech-stack tags
+Category filter: All, Software, AI / ML, Systems
+"Explore architecture" panel on every project card
+Skills, experience, and education sections
+Responsive layout with a mobile menu
+Direct links for email, LinkedIn, GitHub, and resume download
+Hidden cat animation (assets in assets/cat)
 🗂️ Featured Projects
 Project	What it is	Tech	Repository
 Thyroid Nodule Detection Engine	CNN-based detection and classification of thyroid nodules from ultrasound images	Python, TensorFlow, EfficientNet, OpenCV	View
@@ -41,34 +71,16 @@ NeuroSphere-X Smart City	Real-time urban analytics with live dashboards, heatmap
 Railway Reservation System	Cross-platform ticket booking app	Flutter, Firebase	View
 Nutri-AI Nutrition Vision	Food recognition with nutrition mapping	Python, OpenCV, React, REST	View
 Smart Autonomous Home Node	ESP32 sensing concept with telemetry and remote controls	C++, ESP32, WebSockets	—
-🚀 Run It Locally
-
-No installation is needed, because the site is plain HTML, CSS, and JavaScript.
-
-Clone the repository
-bash
-git clone https://github.com/PRANAV-MS25/My-Portfolio.git
-cd My-Portfolio
-Open the site
-
-Double-click index.html, or start a small local server:
-
-bash
-python -m http.server 8000
-
-Then open http://localhost:8000 in your browser.
-
-☁️ Deployment
-
-The site is hosted on Vercel as a static site. Every push to the main branch updates the live version.
-
-📸 Project Previews
-Thyroid Nodule Detection	BusPass Automation	NeuroSphere-X Smart City
-<img src="thyroid.png" width="320" alt="Thyroid Nodule Detection preview">	<img src="buspass.png" width="320" alt="BusPass Automation preview">	<img src="NeuroSphere-X.png" width="320" alt="NeuroSphere-X Smart City preview">
-CNN-based ultrasound analysis with Grad-CAM	Online bus pass workflow with admin approval	Live telemetry dashboard and heatmaps
-Railway Reservation	Nutri-AI Nutrition Vision	Smart Autonomous Home Node
-<img src="railway.png" width="320" alt="Railway Reservation System preview">	<img src="Nutri-AI.png" width="320" alt="Nutri-AI preview">	<img src="home.png" width="320" alt="Smart Autonomous Home Node preview">
-Ticket booking flow	Food recognition and nutrition mapping	Sensor telemetry and alerts
+📸 Project Screenshots
+1. AI & Computer Vision
+Thyroid Nodule Detection	Nutri-AI Nutrition Vision
+Show Image	Show Image
+2. Web & Mobile Applications
+BusPass Automation	Railway Reservation
+Show Image	Show Image
+3. Real-Time & IoT Systems
+NeuroSphere-X Smart City	Smart Autonomous Home Node
+Show Image	Show Image
 👨‍💻 Developer & Contact
 
 Developed by Pranav Matham, Computer Science graduate (2026), Bengaluru, India.
