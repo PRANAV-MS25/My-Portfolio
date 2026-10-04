@@ -35,7 +35,7 @@ My-Portfolio/
 ├── home.png            # Project preview: Smart Home Node
 └── Pranav_Matham_Resume.pdf  # Professional CV
 
-
+``` Table
 🗄️ Core Components & Architecture
 index.html (Markup & Layout)
 Section	Description
@@ -47,6 +47,8 @@ Projects	Filterable grid (Software, AI/ML, Systems) with modal popups
 Stack	Core foundations, languages, and toolchains
 Experience	Professional internship and educational timeline
 Contact	Direct outreach triggers and footer metadata
+
+``` Table
 script.js (Interactivity & Logic)
 Functionality	Implementation
 Project Filtering	Category-based DOM filtering (All / Software / AI / Systems)
@@ -54,6 +56,8 @@ Dynamic Modals	Architectural deep-dive cards triggered on project selection
 Terminal Widget	Interactive command-line simulation with copy-email action
 Walking Cat Sprite	Custom event-driven character animation engine
 Scroll Progress	Dynamic reading progress bar across viewport bounds
+
+``` 
 ⚙️ Setup & Local Development
 1. Prerequisites
 A modern web browser (Chrome, Firefox, Edge, Safari)
