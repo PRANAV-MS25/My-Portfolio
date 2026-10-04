@@ -26,4 +26,16 @@ pranav-portfolio-upgraded/
 │   └── Pranav_Matham_Resume.pdf  # Professional CV
 └── README.md
 ##
-🗄️ Core Components & Architectureindex.html (Markup & Layout)SectionDescriptionHeaderSticky navigation with responsive menu & quick linksHeroIntroductory copy, CTAs, interactive terminal widget & stats rowMarqueeInfinite scrolling technology tickerAboutContext grid detailing engineering mindset and core pillarsProjectsFilterable grid (Software, AI/ML, Systems) with modal popupsStackCore foundations, languages, and toolchainsExperienceProfessional internship and educational timelineContactDirect outreach triggers and footer metadata
+🗄️ Core Components & Architectureindex.html 
+### `index.html` (Markup & Layout)
+
+| Section | Description |
+| :--- | :--- |
+| **Header** | Sticky navigation with responsive menu & quick links |
+| **Hero** | Introductory copy, CTAs, interactive terminal widget & stats row |
+| **Marquee** | Infinite scrolling technology ticker |
+| **About** | Context grid detailing engineering mindset and core pillars |
+| **Projects** | Filterable grid (Software, AI/ML, Systems) with modal popups |
+| **Stack** | Core foundations, languages, and toolchains |
+| **Experience** | Professional internship and educational timeline |
+| **Contact** | Direct outreach triggers and footer metadata |
